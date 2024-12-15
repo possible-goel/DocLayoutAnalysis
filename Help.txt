@@ -1,0 +1,103 @@
+# Major Project: Document Layout Analysis
+
+This project focuses on analyzing the layout of Hindi documents using a custom model and benchmarking against YOLOv5. It includes data preprocessing, OCR integration, paragraph grouping, and model training for efficient layout analysis.
+
+## Features
+- Custom model development for document layout analysis.
+- Comparison and benchmarking with YOLOv5.
+- Preprocessing pipelines for bounding box generation and paragraph merging.
+- OCR integration and evaluation on annotated datasets.
+
+## Installation
+
+### Requirements
+- Python 3.x
+- Detectron2
+- Google Colab (for training)
+- Additional Python libraries: OpenCV, Matplotlib, NumPy, Pandas, etc.
+
+### Setup Instructions
+1. Mount google drive.
+
+2. Install dependencies.
+
+3. Set up Detectron2 following [Detectron2 installation guide](https://github.com/facebookresearch/detectron2/blob/main/INSTALL.md).
+
+## Dataset Structure
+
+The detectron_dataset is organized into three categories: **novel**, **paper**, and **story**. Each category has the following structure:
+
+```
+novel/
+├── output/
+│   ├── events.out.tfevents.*         # TensorBoard logs
+│   ├── last_checkpoint               # Latest checkpoint file
+│   ├── metrics.json                  # Metrics file for evaluation
+│   ├── model_0000999.pth             # Model checkpoints
+│   ├── model_final.pth               # Final trained model
+├── train/                            # Training dataset
+├── valid/                            # Validation dataset
+├── test/                             # Testing dataset
+
+paper/
+├── output/                           # Similar structure as 'novel'
+├── train/                            # Training dataset
+├── valid/                            # Validation dataset
+├── test/                             # Testing dataset
+
+story/
+├── output/                           # Similar structure as 'novel'
+├── train/                            # Training dataset
+├── valid/                            # Validation dataset
+├── test/                             # Testing dataset
+
+
+## Usage
+
+1. All usage will be done using the "Major\major_project.ipynb" file.
+
+2. Upload the detectron_dataset directory on google drive, and in each /output directory place the relevant weight files from source.
+
+3. Cell 1:
+    - Used to mount Google drive in the project.
+
+4. Cell 2:
+    - Don't run unless you want to train your own dataset.
+
+5. Cell 3:
+    - Install dependencies.
+
+6. Cell 4:
+    - Only for testing and demonstration purpose, need to upload annotation as well as image both.
+
+7. Cell 5:
+    - For user to upload the image and select model to get the annotated output.
+
+ ## Dataset Description Classes
+
+1.Novel
+    - Image
+    - Image Description
+    - Sub Title
+    - Table
+    - Text Block
+    - Title
+
+2.Paper
+    - Abstract Body
+    - Abstract Heading
+    - Author
+    - Body
+    - Footer Info
+    - Heading
+    - Journal Header
+    - Journal Info
+    - Keywords
+    - Title
+
+3.Story
+    - Image
+    - Sub Title
+    - Text Block
+    - Title
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
